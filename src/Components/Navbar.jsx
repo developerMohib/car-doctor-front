@@ -1,12 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/logo.svg"
-// import delivery from "../assets/icons/deliveryt.svg"
-// import check from "../assets/icons/check.svg"
-// import Group3 from "../assets/icons/Group3.svg"
-// import group from "../assets/icons/group.svg"
-// import person from "../assets/icons/person.svg"
-// import quote from "../assets/icons/quote.svg"
-// import Wrench from "../assets/icons/Wrench.svg"
 import { IoBagOutline } from "react-icons/io5";
 import { IoIosSearch } from "react-icons/io";
 import { useState } from "react";

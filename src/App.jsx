@@ -8,8 +8,10 @@ function App() {
 
   return (
     <>
+    <div className='px-8' >
     <Navbar> </Navbar>
-      <div>
+    </div>
+      <div className='w-[1280px] mx-auto' >
         <Outlet> </Outlet>
       </div>
       <Footer> </Footer>

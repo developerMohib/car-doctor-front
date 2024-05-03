@@ -13,6 +13,8 @@ import About from './Pages/About/About.jsx';
 import Contact from './Pages/Contact/Contact.jsx';
 import Blog from './Pages/Blog/Blog.jsx';
 import Service from './Pages/Service/Service.jsx';
+import Login from './Pages/Login/Login.jsx';
+import Register from './Pages/Register/Register.jsx';
 
 const router = createBrowserRouter([
   {
@@ -39,6 +41,14 @@ const router = createBrowserRouter([
       {
         path: "/service" ,
         element: <Service> </Service> ,
+      },
+      {
+        path: "/login" ,
+        element: <Login> </Login> ,
+      },
+      {
+        path: "/register" ,
+        element: <Register> </Register> ,
       },
     ]
   },
