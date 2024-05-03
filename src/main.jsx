@@ -9,6 +9,10 @@ import {
 import "./index.css";
 import ErrorPage from './ErrorPage/ErrorPage.jsx';
 import Home from './Pages/Home/Home.jsx';
+import About from './Pages/About/About.jsx';
+import Contact from './Pages/Contact/Contact.jsx';
+import Blog from './Pages/Blog/Blog.jsx';
+import Service from './Pages/Service/Service.jsx';
 
 const router = createBrowserRouter([
   {
@@ -19,7 +23,23 @@ const router = createBrowserRouter([
       {
         path: "/" ,
         element: <Home> </Home> ,
-      }
+      },
+      {
+        path: "/about" ,
+        element: <About> </About> ,
+      },
+      {
+        path: "/contact" ,
+        element: <Contact> </Contact> ,
+      },
+      {
+        path: "/blog" ,
+        element: <Blog> </Blog> ,
+      },
+      {
+        path: "/service" ,
+        element: <Service> </Service> ,
+      },
     ]
   },
 ]);
