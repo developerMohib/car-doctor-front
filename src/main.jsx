@@ -15,6 +15,7 @@ import Blog from './Pages/Blog/Blog.jsx';
 import Service from './Pages/Service/Service.jsx';
 import Login from './Pages/Login/Login.jsx';
 import Register from './Pages/Register/Register.jsx';
+// import ServeDetails from './Components/ServeDetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,12 @@ const router = createBrowserRouter([
       {
         path: "/service" ,
         element: <Service> </Service> ,
+        loader: () => fetch(`/services.json`)
+      },
+      {
+        path: "/service/:id" ,
+        element: <Service> </Service> ,
+        loader: () => fetch(`/services.json`)
       },
       {
         path: "/login" ,

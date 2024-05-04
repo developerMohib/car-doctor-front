@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const ServiceSec = () => {
   const [servies, setServies] = useState([]);
@@ -31,6 +32,7 @@ const ServiceSec = () => {
         {servies?.map((ser) => (
           <div key={ser._id}>
             {/* <p> hello vai {ser.title} </p> */}
+            <Link to={`/service/${ser._id}`} >
             <div className="card card-compact w-96 bg-base-100 shadow-xl">
               <figure>
                 <img src={ser.img} alt="Shoes" />
@@ -42,22 +44,27 @@ const ServiceSec = () => {
                   {" "}
                   <span className="font-semibold">Price</span> : {ser.price}{" "}
                 </p>
+                <Link to={`/service/${ser._id}`} >
                   <button className="btn text-white bg-[#FF3811] hover:p-1 btn-circle">
                     {" "}
                     <FaArrowRightLong></FaArrowRightLong>{" "}
                   </button>
+                </Link>
                 </div>
               </div>
             </div>
+            </Link>
           </div>
         ))}
       </div>
 
       <div className="text-center my-10">
+        <Link to='/service' >
         <button className="btn btn-outline bg-[#FF3811] ">
           {" "}
           More Servies{" "}
-        </button>
+        </button> 
+        </Link>
       </div>
     </>
   );
