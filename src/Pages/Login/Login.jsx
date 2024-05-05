@@ -6,7 +6,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { FaGoogle,FaTwitter,FaFacebook } from "react-icons/fa";
 
 const Login = () => {
-  const { login } = useContext(AuthProviderContext);
+  const { login,loginWithGoogle,facebookLogin } = useContext(AuthProviderContext);
   const loginSuccess = () => toast.success(" log in Successfully!");
   const loginFail = () => toast.error("Login Failed!");
 
@@ -29,8 +29,33 @@ const Login = () => {
       console.error(error.message);
       loginFail();
     });
-      
   };
+
+  const googleLogin = () => {
+    loginWithGoogle()
+    .then((result) => {
+      console.log(result.user);
+      loginSuccess();
+    })
+    .catch((error)=>{
+      console.log(error.message)
+    })
+  }
+  const facebookLoginclick = () => {
+    facebookLogin()
+    .then((result) => {
+      console.log(result.user);
+      loginSuccess();
+    })
+    .catch((error)=>{
+      console.log(error.message)
+    })
+  }
+  const twitterLogin = () => {
+
+  }
+
+
   return (
     <div>
       <div className="hero min-h-screen bg-base-200">
@@ -77,9 +102,9 @@ const Login = () => {
               </div>
               <div className="text-center">
                 <h1>Or Sign In with</h1>
-                <button className="btn mx-2 "> <FaGoogle></FaGoogle> </button>
-                <button className="btn mx-2 "> <FaFacebook></FaFacebook> </button>
-                <button className="btn mx-2 "> <FaTwitter></FaTwitter> </button>
+                <button onClick={googleLogin} className="btn mx-2 "> <FaGoogle></FaGoogle> </button>
+                <button onClick={facebookLoginclick} className="btn mx-2 "> <FaFacebook></FaFacebook> </button>
+                <button onClick={twitterLogin} className="btn mx-2 "> <FaTwitter></FaTwitter> </button>
                 <h1>
                   {" "}
                   New Here ?{" "}
