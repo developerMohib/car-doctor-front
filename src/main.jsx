@@ -15,6 +15,7 @@ import Register from "./Pages/Register/Register.jsx";
 import CheckOut from "./Pages/CheckOut/CheckOut.jsx";
 import NewProduct from "./Pages/NewProduct/NewProduct.jsx";
 import Provider from "./Provider/Provider.jsx";
+import PrivateRoute from "./Pages/Private/PrivateRoute.jsx";
 // import ServeDetails from './Components/ServeDetails.jsx';
 
 const router = createBrowserRouter([
@@ -42,12 +43,12 @@ const router = createBrowserRouter([
       {
         path: "/service",
         element: <Service> </Service>,
-        loader: () => fetch(`/services.json`),
+        loader: () => fetch(`http://localhost:5000/services`),
       },
       {
         path: "/service/:id",
         element: <Service> </Service>,
-        loader: () => fetch(`/services.json`),
+        loader: () => fetch(`http://localhost:5000/services`),
       },
       {
         path: "/login",
@@ -59,7 +60,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/checkout",
-        element: <CheckOut> </CheckOut>,
+        element: <PrivateRoute> <CheckOut> </CheckOut> </PrivateRoute>,
       },
       {
         path: "/newadd",

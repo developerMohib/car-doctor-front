@@ -45,12 +45,18 @@ const Navbar = () => {
         {" "}
         Blog{" "}
       </NavLink>
+      {
+        user && <NavLink to="/checkout" className=" px-2 py-1 font-semibold ">
+        {" "}
+        Check Out{" "}
+      </NavLink>
+      }
     </>
   );
   return (
     <div>
       <div>
-        <div className="navbar bg-base-100 h-24">
+        <div className="navbar bg-base-100 h-24 z-50 ">
           <div className="navbar-start">
             <div className="dropdown">
               <div
@@ -93,6 +99,7 @@ const Navbar = () => {
             </Link>
 
             {user ? (
+              <>
               <button
                 onClick={handleLogOut}
                 data-tooltip-id="my-tooltip"
@@ -102,10 +109,12 @@ const Navbar = () => {
                 {" "}
                 <IoLogOutOutline className="text-2xl"></IoLogOutOutline>{" "}
               </button>
+              </>
             ) : (
               <Link
                 data-tooltip-id="my-tooltip"
                 data-tooltip-content="log in"
+                place="top"
                 className="btn text-[#FF3811] "
                 to="/login"
               >
@@ -116,7 +125,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      <Tooltip id="my-tooltip" />
+      <Tooltip id="my-tooltip" place="left" />
       <Toaster position="top-right" reverseOrder={false} />
     </div>
   );

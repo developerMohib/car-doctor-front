@@ -7,9 +7,9 @@ import slider5 from "../assets/images/banner/1.jpg";
 import { FaArrowLeftLong, FaArrowRightLong } from "react-icons/fa6";
 const Slider = () => {
   return (
-    <div className="relative" >
-      <div className="carousel w-full h-[600px]">
-        <div id="slide1" className="carousel-item relative w-full">
+    <div className="relative " >
+      <div className="carousel w-full h-[600px] ">
+        <div id="slide1" className="carousel-item relative w-full ">
           <img src={slider1} className="w-full" />
           <div className="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 bottom-5 space-x-4 z-50 ">
             <a href="#slide6" className="btn btn-circle">
@@ -35,7 +35,7 @@ const Slider = () => {
         </div>
         <div id="slide3" className="carousel-item relative w-full">
           <img src={slider3} className="w-full" />
-          <div className="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 bottom-5 space-x-4 z-50 ">
+          <div className="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 bottom-5 space-x-4 ">
             <a href="#slide2" className="btn btn-circle">
             <FaArrowLeftLong></FaArrowLeftLong>{" "}
             </a>

@@ -1,9 +1,10 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut,GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut,GoogleAuthProvider, FacebookAuthProvider, TwitterAuthProvider } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../Firebase/Firebase.config";
 export const AuthProviderContext = createContext();
 const googleProvider = new GoogleAuthProvider();
 const facebookProvider = new FacebookAuthProvider();
+const twitterProvider = new TwitterAuthProvider();
 
 
 const Provider = ({children}) => {
@@ -30,6 +31,9 @@ const Provider = ({children}) => {
     const facebookLogin = () => {
         return signInWithPopup(auth, facebookProvider)
     }
+    const twitterLogin = () => {
+        return signInWithPopup(auth, twitterProvider)
+    }
 
     // authorize here
     useEffect(()=>{
@@ -48,6 +52,7 @@ const Provider = ({children}) => {
         login,
         loginWithGoogle,
         facebookLogin,
+        twitterLogin,
         logOut,
         user,
     };

@@ -6,10 +6,10 @@ const Service = () => {
   const serVice = useLoaderData();
   const { id } = useParams();
 
-  console.log(serVice, "servies");
+  // console.log(serVice, "servies");
   const filterSer = serVice?.find((item) => item._id == id);
 
-  console.log("useloader", filterSer);
+  // console.log("useloader", filterSer);
   const { description, img, title, facility } = filterSer || {};
 
   return (
