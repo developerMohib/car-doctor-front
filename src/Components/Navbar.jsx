@@ -1,14 +1,31 @@
 import { Link, NavLink } from "react-router-dom";
-import logo from "../assets/logo.svg"
-import { IoBagOutline } from "react-icons/io5";
-import { IoIosSearch } from "react-icons/io";
-import { useState } from "react";
+import logo from "../assets/logo.svg";
+import { IoBagOutline, IoLogOutOutline } from "react-icons/io5";
+import { IoIosSearch, IoIosLogIn } from "react-icons/io";
+import { useContext, useState } from "react";
 import { MdRestaurantMenu } from "react-icons/md";
+import { AuthProviderContext } from "../Provider/Provider";
+import { Tooltip } from "react-tooltip";
+import toast, { Toaster } from "react-hot-toast";
 
 const Navbar = () => {
-    const [open, SetOpen] = useState(false)
-    const navlink = <>
-    <NavLink to="/" className=" px-2 py-1 font-semibold">
+  const { user, logOut } = useContext(AuthProviderContext);
+  const [open, SetOpen] = useState(false);
+  const logOutSuc = () => toast.success("Log Out Successfully !");
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        logOutSuc();
+      })
+      .catch((error) => {
+        console.error(error.message);
+      });
+  };
+
+  const navlink = (
+    <>
+      <NavLink to="/" className=" px-2 py-1 font-semibold">
         {" "}
         Home{" "}
       </NavLink>
@@ -29,6 +46,7 @@ const Navbar = () => {
         Blog{" "}
       </NavLink>
     </>
+  );
   return (
     <div>
       <div>
@@ -38,9 +56,9 @@ const Navbar = () => {
               <div
                 tabIndex={0}
                 role="button"
-                className="btn btn-ghost lg:hidden" 
+                className="btn btn-ghost lg:hidden"
               >
-                <MdRestaurantMenu ></MdRestaurantMenu>
+                <MdRestaurantMenu></MdRestaurantMenu>
               </div>
               <ul
                 onClick={() => SetOpen(!open)}
@@ -51,21 +69,55 @@ const Navbar = () => {
               </ul>
             </div>
             <div>
-                <Link> <img className="h-14" src={logo} alt="logo" /></Link>
+              <Link>
+                {" "}
+                <img className="h-14" src={logo} alt="logo" />
+              </Link>
             </div>
           </div>
           <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal px-1">
-              {navlink}
-            </ul>
+            <ul className="menu menu-horizontal px-1">{navlink}</ul>
           </div>
           <div className="navbar-end space-x-4">
-            <p> <IoBagOutline> </IoBagOutline> </p>
-            <p> <IoIosSearch/> </p>
-            <Link className="btn btn-outline text-[#FF3811] " to='/login' > APPOINTMENT </Link>
+            <p>
+              {" "}
+              <IoBagOutline> </IoBagOutline>{" "}
+            </p>
+            <p>
+              {" "}
+              <IoIosSearch />{" "}
+            </p>
+            <Link className="btn btn-outline text-[#FF3811] " to="/login">
+              {" "}
+              APPOINTMENT{" "}
+            </Link>
+
+            {user ? (
+              <button
+                onClick={handleLogOut}
+                data-tooltip-id="my-tooltip"
+                data-tooltip-content="log out!"
+                className="btn text-[#FF3811] "
+              >
+                {" "}
+                <IoLogOutOutline className="text-2xl"></IoLogOutOutline>{" "}
+              </button>
+            ) : (
+              <Link
+                data-tooltip-id="my-tooltip"
+                data-tooltip-content="log in"
+                className="btn text-[#FF3811] "
+                to="/login"
+              >
+                {" "}
+                <IoIosLogIn className="text-2xl"></IoIosLogIn>{" "}
+              </Link>
+            )}
           </div>
         </div>
       </div>
+      <Tooltip id="my-tooltip" />
+      <Toaster position="top-right" reverseOrder={false} />
     </div>
   );
 };
