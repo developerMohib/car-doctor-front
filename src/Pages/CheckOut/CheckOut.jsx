@@ -1,4 +1,4 @@
-import { Link} from "react-router-dom";
+import { Link, useLoaderData, useParams} from "react-router-dom";
 import Banner from "../../Components/Banner";
 import { useContext } from "react";
 import { AuthProviderContext } from "../../Provider/Provider";
@@ -6,9 +6,9 @@ import Swal from "sweetalert2";
 
 const CheckOut = () => {
   const {user} = useContext(AuthProviderContext)
-  // const parts = useLoaderData() ;
-  // const {id} = useParams();
-  // console.log(parts, 'parst');
+  const parts = useLoaderData() ;
+  const {id} = useParams();
+  console.log(parts, 'parst');
 
   const handleConfirmed = (e) => {
     e.preventDefault() ;
@@ -64,6 +64,7 @@ const CheckOut = () => {
 
       {/* from */}
       <div className="bg-base-300 p-10 w-4/5 mx-auto rounded-lg ">
+        <p> Product id : {id} </p>
         <form onSubmit={handleConfirmed} className="space-y-3" >
           <div className="flex gap-5">
             <div className="w-1/2">

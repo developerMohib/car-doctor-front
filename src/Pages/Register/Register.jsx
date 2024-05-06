@@ -12,6 +12,7 @@ const Register = () => {
     e.preventDefault();
     const fV = e.target;
     const email = fV.email.value;
+    const name = fV.name.value;
     const password = fV.password.value;
     fV.reset();
     // console.log(name, email, password, "register page");

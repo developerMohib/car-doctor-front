@@ -10,7 +10,7 @@ const Service = () => {
   const filterSer = serVice?.find((item) => item._id == id);
 
   // console.log("useloader", filterSer);
-  const { description, img, title, facility } = filterSer || {};
+  const { description, img, title, facility,price } = filterSer || {};
 
   return (
     <div>
@@ -175,7 +175,7 @@ const Service = () => {
             </div>
           </div>
           <div>
-            <h1 className="font-semibold text-2xl">Price $250.00</h1>
+            <h1 className="font-semibold text-2xl">Price $ {price} </h1>
             <Link to={`/checkout`} > <button className="btn w-full bg-[#ff3811]"> place to order </button> </Link>
           </div>
         </div>

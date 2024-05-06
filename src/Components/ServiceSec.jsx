@@ -39,13 +39,20 @@ const ServiceSec = () => {
               </figure>
               <div className="card-body">
                 <h2 className="card-title">{ser.title}</h2>
-                <div className="card-actions justify-between items-center ">
                 <p className="text-[#FF3811]">
                   {" "}
                   <span className="font-semibold">Price</span> : {ser.price}{" "}
                 </p>
+                <div className="card-actions justify-between items-center ">
+                
                 <Link to={`/service/${ser._id}`} >
-                  <button className="btn text-white bg-[#FF3811] hover:p-1 btn-circle">
+                  <button className="btn text-white bg-[#FF3811]"> details
+                    {" "}
+                    <FaArrowRightLong></FaArrowRightLong>{" "}
+                  </button>
+                </Link>
+                <Link to={`/checkout/${ser._id}`} >
+                  <button className="btn text-white bg-[#FF3811]"> book now
                     {" "}
                     <FaArrowRightLong></FaArrowRightLong>{" "}
                   </button>

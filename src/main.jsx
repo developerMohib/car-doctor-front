@@ -60,9 +60,9 @@ const router = createBrowserRouter([
         element: <Register> </Register>,
       },
       {
-        path: "/checkout",
+        path: "/checkout/:id",
         element: <PrivateRoute> <CheckOut> </CheckOut> </PrivateRoute>,
-        // loader: () => fetch(`http://localhost:5000/services`),
+        loader: ({params}) => fetch(`http://localhost:5000/services/${params.id}`),
       },
       {
         path: "/bookings",
