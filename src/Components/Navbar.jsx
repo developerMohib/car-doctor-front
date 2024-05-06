@@ -48,14 +48,10 @@ const Navbar = () => {
       </NavLink>
       {user && (
         <>
-        <NavLink to="/checkout" className=" px-2 py-1 font-semibold ">
-          {" "}
-          Check Out{" "}
-        </NavLink>
-        <NavLink to="/bookings" className=" px-2 py-1 font-semibold ">
-          {" "}
-          Booking{" "}
-        </NavLink>
+          <NavLink to="/bookings" className=" px-2 py-1 font-semibold ">
+            {" "}
+            Booking{" "}
+          </NavLink>
         </>
       )}
     </>
@@ -69,9 +65,9 @@ const Navbar = () => {
               <div
                 tabIndex={0}
                 role="button"
-                className="btn btn-ghost lg:hidden"
+                className=" lg:hidden"
               >
-                <MdRestaurantMenu></MdRestaurantMenu>
+                <MdRestaurantMenu className="text-2xl" ></MdRestaurantMenu>
               </div>
               <ul
                 onClick={() => SetOpen(!open)}
@@ -92,11 +88,11 @@ const Navbar = () => {
             <ul className="menu menu-horizontal px-1">{navlink}</ul>
           </div>
           <div className="navbar-end space-x-4">
-            <p>
+            <p className="lg:block hidden" >
               {" "}
               <IoBagOutline> </IoBagOutline>{" "}
             </p>
-            <p>
+            <p className="lg:block hidden" >
               {" "}
               <IoIosSearch />{" "}
             </p>
@@ -108,10 +104,13 @@ const Navbar = () => {
             {user ? (
               <>
                 <div>
-                <FaUserLarge 
-                data-tooltip-id="my-tooltip"
-                data-tooltip-content={user.displayName}
-                className="text-4xl border rounded-full p-1 "> </FaUserLarge>
+                  <FaUserLarge
+                    data-tooltip-id="my-tooltip"
+                    data-tooltip-content={user.displayName}
+                    className="text-4xl border rounded-full p-1 "
+                  >
+                    {" "}
+                  </FaUserLarge>
                 </div>
                 <button
                   onClick={handleLogOut}

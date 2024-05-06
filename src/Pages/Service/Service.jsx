@@ -30,16 +30,16 @@ const Service = () => {
           </ul>
         </div>
       </div>
-      <div className="lg:grid grid-cols-3 gap-5 ">
+      <div className="lg:grid grid-cols-3 gap-5 mx-3 ">
         <div className="col-span-2">
           <img src={img} alt="" />
           <h1 className="font-blod text-2xl my-3 "> {title} </h1>
           <p> {description} </p>
-          <div className="grid grid-cols-2 gap-5 my-10 ">
+          <div className="md:grid md:grid-cols-2 gap-5 my-1 md:my-10 ">
             {facility?.map((item, id) => (
               <div
                 key={id}
-                className="bg-base-300 border-t border-black rounded-lg p-5 "
+                className="bg-base-300 border-t border-black rounded-lg p-5 my-3 "
               >
                 <h1 className="text-2xl font-semibold"> {item.name} </h1>
                 <p>{item.details}</p>
@@ -47,7 +47,7 @@ const Service = () => {
             ))}
           </div>
           <div>
-            <p>
+            <p className="md:ml-0 ml-5" >
               There are many variations of passages of Lorem Ipsum available,
               but the majority have suffered alteration in some form, by
               injected humour, or randomised words which do not look even
@@ -55,8 +55,8 @@ const Service = () => {
               Ipsum, you need to be sure there is not anything embarrassing
               hidden in the middle of text.{" "}
             </p>
-            <div className="grid grid-cols-3 gap-5 my-10">
-              <div className="bg-base-300 rounded-lg text-center p-5 space-y-2 ">
+            <div className="md:grid md:grid-cols-3 gap-5 my-10">
+              <div className="bg-base-300 rounded-lg text-center p-5 space-y-2 m-3 ">
                 <p>
                   {" "}
                   <span className="text-white p-2 bg-[#ff3811] rounded-full ">
@@ -66,7 +66,7 @@ const Service = () => {
                 <h1>Step One</h1>
                 <p>It uses a dictionary of over 200 .</p>
               </div>
-              <div className="bg-base-300 rounded-lg text-center p-5 space-y-2  ">
+              <div className="bg-base-300 rounded-lg text-center p-5 space-y-2 m-3 ">
                 <p>
                   {" "}
                   <span className="text-white p-2 bg-[#ff3811] rounded-full ">
@@ -76,7 +76,7 @@ const Service = () => {
                 <h1>Step Two</h1>
                 <p>It uses a dictionary of over 200 .</p>
               </div>
-              <div className="bg-base-300 rounded-lg text-center p-5 space-y-2  ">
+              <div className="bg-base-300 rounded-lg text-center p-5 space-y-2 m-3 ">
                 <p>
                   {" "}
                   <span className="text-white p-2 bg-[#ff3811] rounded-full ">
@@ -89,7 +89,7 @@ const Service = () => {
             </div>
           </div>
         </div>
-        <div className="col-span-1 bg-base-300 p-10 ">
+        <div className="col-span-1 bg-base-300 p-10 mx-3 ">
           <h1 className="font-semibold mb-5 ">Services</h1>
           <div>
             <ul>
@@ -176,7 +176,7 @@ const Service = () => {
           </div>
           <div>
             <h1 className="font-semibold text-2xl">Price $ {price} </h1>
-            <Link to={`/checkout`} > <button className="btn w-full bg-[#ff3811]"> place to order </button> </Link>
+            <Link to={`/checkout/${id}`} > <button className="btn w-full bg-[#ff3811]"> place to order </button> </Link>
           </div>
         </div>
       </div>

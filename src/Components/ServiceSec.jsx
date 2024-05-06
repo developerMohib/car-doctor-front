@@ -28,12 +28,12 @@ const ServiceSec = () => {
         </div>
       </div>
 
-      <div className="lg:grid grid-cols-3 gap-5">
+      <div className="lg:grid md:grid-cols-3 gap-5">
         {servies?.map((ser) => (
           <div key={ser._id}>
             {/* <p> hello vai {ser.title} </p> */}
             <Link to={`/service/${ser._id}`} >
-            <div className="card card-compact w-96 bg-base-100 shadow-xl">
+            <div className="card card-compact md:w-96 bg-base-100 shadow-xl">
               <figure>
                 <img src={ser.img} alt="Shoes" />
               </figure>
@@ -51,12 +51,12 @@ const ServiceSec = () => {
                     <FaArrowRightLong></FaArrowRightLong>{" "}
                   </button>
                 </Link>
-                <Link to={`/checkout/${ser._id}`} >
+                {/* <Link to={`/checkout/${ser._id}`} >
                   <button className="btn text-white bg-[#FF3811]"> book now
                     {" "}
                     <FaArrowRightLong></FaArrowRightLong>{" "}
                   </button>
-                </Link>
+                </Link> */}
                 </div>
               </div>
             </div>

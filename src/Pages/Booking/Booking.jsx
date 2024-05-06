@@ -19,7 +19,7 @@ const Booking = () => {
   if (loading) {
     return <p> loading... </p>;
   }
-
+console.log(findData,'findedata')
   const handleDelete = (id) => {
     Swal.fire({
         title: "Are you sure?",
@@ -92,6 +92,7 @@ const hanldeConfirm = (id) => {
             <th>
             </th>
             <th>Name</th>
+            <th>Product Name</th>
             <th>Email</th>
             <th>Amount</th>
             <th>Date</th>
@@ -101,8 +102,8 @@ const hanldeConfirm = (id) => {
         </thead>
         <tbody>
           {/* row 1 */}
-          {findData?.map((booking) => (
-            <BookingTable key={booking._id} booking={booking} handleDelete={handleDelete} hanldeConfirm={hanldeConfirm} >
+          {findData?.map((book) => (
+            <BookingTable key={book._id} booking={book} handleDelete={handleDelete} hanldeConfirm={hanldeConfirm} >
               {" "}
             </BookingTable>
           ))}

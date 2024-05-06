@@ -11,7 +11,7 @@ function App() {
     <div className='px-8' >
     <Navbar> </Navbar>
     </div>
-      <div className='w-[1280px] mx-auto' >
+      <div className='lg:w-[1280px] mx-auto' >
         <Outlet> </Outlet>
       </div>
       <Footer> </Footer>

@@ -10,7 +10,7 @@ const Products = () => {
    
     return (
         <div>
-            <div className="lg:w-1/2 mx-auto my-10 ">
+            <div className="lg:w-1/2 mx-auto px-3 my-10 ">
         <div className="text-center" >
         <h1 className="text-xl text-[#FF3811] font-bold">Popular Products</h1>
         <h1 className="text-3xl font-bold">
@@ -31,7 +31,7 @@ const Products = () => {
                 <h2 className=" "> $20.00 </h2>
             </div>
         </div>
-      <div className="card py-5 shadow-xl px-10 col-span-1 text-center justify-center"> text-center
+      <div className="card py-5 shadow-xl px-10 col-span-1 text-center justify-center">
             <figure>
                 <img className="w-52" src={product2} alt="" />
             </figure>
@@ -40,7 +40,7 @@ const Products = () => {
                 <h2 className=" ">$20.00!</h2>
             </div>
         </div>
-        <div className="card py5-5 shadow-xl px-10 col-span-1 text-center justify-center">
+        <div className="card md:my-0 my-5 py5-5 shadow-xl px-10 col-span-1 text-center justify-center">
             <figure>
                 <img className="w-52" src={product3} alt="" />
             </figure>
@@ -49,7 +49,7 @@ const Products = () => {
                 <h2 className=" ">$20.00</h2>
             </div>
         </div>
-        <div className="card py5-5 shadow-xl px-10 col-span-1 text-center justify-center">
+        <div className="card md:my-0 my-5 py5-5 shadow-xl px-10 col-span-1 text-center justify-center">
             <figure>
                 <img className="w-52" src={product4} alt="" />
             </figure>
@@ -58,7 +58,7 @@ const Products = () => {
                 <h2 className=" ">$20.00</h2>
             </div>
         </div>
-      <div className="card py-5 shadow-xl px-10 col-span-1 text-center justify-center">
+      <div className="card md:my-0 my-5 py-5 shadow-xl px-10 col-span-1 text-center justify-center">
             <figure>
                 <img className="w-52" src={product5} alt="" />
             </figure>
@@ -67,7 +67,7 @@ const Products = () => {
                 <h2 className=" ">$20.00</h2>
             </div>
         </div>
-      <div className="card py-5 shadow-xl px-10 col-span-1 text-center justify-center">
+      <div className="card md:my-0 my-5 py-5 shadow-xl px-10 col-span-1 text-center justify-center">
             <figure>
                 <img className="w-52" src={product6} alt="" />
             </figure>
