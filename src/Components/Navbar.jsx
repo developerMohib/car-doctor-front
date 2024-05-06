@@ -7,6 +7,7 @@ import { MdRestaurantMenu } from "react-icons/md";
 import { AuthProviderContext } from "../Provider/Provider";
 import { Tooltip } from "react-tooltip";
 import toast, { Toaster } from "react-hot-toast";
+import { FaUserLarge } from "react-icons/fa6";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthProviderContext);
@@ -45,12 +46,18 @@ const Navbar = () => {
         {" "}
         Blog{" "}
       </NavLink>
-      {
-        user && <NavLink to="/checkout" className=" px-2 py-1 font-semibold ">
-        {" "}
-        Check Out{" "}
-      </NavLink>
-      }
+      {user && (
+        <>
+        <NavLink to="/checkout" className=" px-2 py-1 font-semibold ">
+          {" "}
+          Check Out{" "}
+        </NavLink>
+        <NavLink to="/bookings" className=" px-2 py-1 font-semibold ">
+          {" "}
+          Booking{" "}
+        </NavLink>
+        </>
+      )}
     </>
   );
   return (
@@ -100,21 +107,26 @@ const Navbar = () => {
 
             {user ? (
               <>
-              <button
-                onClick={handleLogOut}
+                <div>
+                <FaUserLarge 
                 data-tooltip-id="my-tooltip"
-                data-tooltip-content="log out!"
-                className="btn text-[#FF3811] "
-              >
-                {" "}
-                <IoLogOutOutline className="text-2xl"></IoLogOutOutline>{" "}
-              </button>
+                data-tooltip-content={user.displayName}
+                className="text-4xl border rounded-full p-1 "> </FaUserLarge>
+                </div>
+                <button
+                  onClick={handleLogOut}
+                  data-tooltip-id="my-tooltip"
+                  data-tooltip-content="log out!"
+                  className="btn text-[#FF3811] "
+                >
+                  {" "}
+                  <IoLogOutOutline className="text-2xl"></IoLogOutOutline>{" "}
+                </button>
               </>
             ) : (
               <Link
                 data-tooltip-id="my-tooltip"
                 data-tooltip-content="log in"
-                place="top"
                 className="btn text-[#FF3811] "
                 to="/login"
               >

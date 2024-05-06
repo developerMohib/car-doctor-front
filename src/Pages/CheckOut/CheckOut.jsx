@@ -1,7 +1,48 @@
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 import Banner from "../../Components/Banner";
+import { useContext } from "react";
+import { AuthProviderContext } from "../../Provider/Provider";
+import Swal from "sweetalert2";
 
 const CheckOut = () => {
+  const {user} = useContext(AuthProviderContext)
+  // const parts = useLoaderData() ;
+  // const {id} = useParams();
+  // console.log(parts, 'parst');
+
+  const handleConfirmed = (e) => {
+    e.preventDefault() ;
+    const productName = e.target.name.value;
+    const date = e.target.date.value;
+    const phone = e.target.phone.value;
+    const amount = e.target.amount.value;
+    const name = user?.name ;
+    const email = user?.email ;
+    const order = {productName, date, phone, amount, name, email}
+    console.log(order)
+
+    // send data 
+    fetch('http://localhost:5000/bookings', {
+      method : 'POST',
+      headers : {
+        'content-type' : 'application/json'
+      },
+      body: JSON.stringify(order)
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      if(data.insertedId){
+        Swal.fire({
+          icon: "success",
+          title: "success",
+          text: "Order has been taken!",
+        });
+      }
+      
+    })
+  }
+
   return (
     <div>
       <div className="relative my-10">
@@ -23,19 +64,19 @@ const CheckOut = () => {
 
       {/* from */}
       <div className="bg-base-300 p-10 w-4/5 mx-auto rounded-lg ">
-        <form className="space-y-3" >
+        <form onSubmit={handleConfirmed} className="space-y-3" >
           <div className="flex gap-5">
             <div className="w-1/2">
               <label className="w-full" htmlFor="name">
-                First Name
+                Product Name
               </label>
               <input className="w-full p-2 rounded-lg" type="text" name="firstName" id="name" />
             </div>
             <div className="w-1/2">
-              <label className="w-full" htmlFor="name">
-                Last Name
+              <label className="w-full" htmlFor="date">
+                Date
               </label>
-              <input className="w-full p-2 rounded-lg" type="text" name="lastName" id="name" />
+              <input className="w-full p-2 rounded-lg" type="date" name="date" id="date" />
             </div>
           </div>
           <div className="flex gap-5">
@@ -46,10 +87,10 @@ const CheckOut = () => {
               <input className="w-full p-2 rounded-lg" type="number" name="phone" id="phone" />
             </div>
             <div className="w-1/2">
-              <label className="w-full" htmlFor="email">
-                Email
+              <label className="w-full" htmlFor="amount">
+                Amount
               </label>
-              <input className="w-full p-2 rounded-lg" type="email" name="email" id="email" />
+              <input placeholder="set defult value" className="w-full p-2 rounded-lg" type="number" name="amount" id="amount" />
             </div>
           </div>
           <div>

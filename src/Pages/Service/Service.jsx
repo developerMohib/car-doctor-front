@@ -176,7 +176,7 @@ const Service = () => {
           </div>
           <div>
             <h1 className="font-semibold text-2xl">Price $250.00</h1>
-            <Link to="/checkout" > <button className="btn w-full bg-[#ff3811]"> place to order </button> </Link>
+            <Link to={`/checkout`} > <button className="btn w-full bg-[#ff3811]"> place to order </button> </Link>
           </div>
         </div>
       </div>

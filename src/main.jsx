@@ -16,6 +16,7 @@ import CheckOut from "./Pages/CheckOut/CheckOut.jsx";
 import NewProduct from "./Pages/NewProduct/NewProduct.jsx";
 import Provider from "./Provider/Provider.jsx";
 import PrivateRoute from "./Pages/Private/PrivateRoute.jsx";
+import Booking from "./Pages/Booking/Booking.jsx";
 // import ServeDetails from './Components/ServeDetails.jsx';
 
 const router = createBrowserRouter([
@@ -61,6 +62,12 @@ const router = createBrowserRouter([
       {
         path: "/checkout",
         element: <PrivateRoute> <CheckOut> </CheckOut> </PrivateRoute>,
+        // loader: () => fetch(`http://localhost:5000/services`),
+      },
+      {
+        path: "/bookings",
+        element: <Booking> </Booking>,
+        // loader: () => fetch(`http://localhost:5000/services`),
       },
       {
         path: "/newadd",
