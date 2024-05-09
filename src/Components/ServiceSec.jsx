@@ -8,11 +8,9 @@ const ServiceSec = () => {
     fetch(`http://localhost:5000/services`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setServies(data);
       });
   }, []);
-  console.log(servies, "data");
 
   return (
     <>

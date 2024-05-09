@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthProviderContext } from "../../Provider/Provider";
 import BookingTable from "./BookingTable";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 const Booking = () => {
   const { user, loading } = useContext(AuthProviderContext);
@@ -9,12 +10,16 @@ const Booking = () => {
 
   const url = `http://localhost:5000/bookings?email=${user?.email}`;
   useEffect(() => {
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        setFindData(data);
-      });
+    axios.get(url, {withCredentials:true})
+    .then(res => {
+      setFindData(res.data)
+    })
+    // fetch(url)
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     console.log(data);
+    //     setFindData(data);
+    //   });
   }, [url]);
   if (loading) {
     return <p> loading... </p>;

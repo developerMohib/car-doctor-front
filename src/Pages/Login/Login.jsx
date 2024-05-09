@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { AuthProviderContext } from "../../Provider/Provider";
 import toast, { Toaster } from "react-hot-toast";
 import { FaGoogle,FaTwitter,FaFacebook } from "react-icons/fa";
+import axios from "axios";
 
 const Login = () => {
   const { login,loginWithGoogle,facebookLogin,twitterLogin } = useContext(AuthProviderContext);
@@ -11,7 +12,6 @@ const Login = () => {
   const loginFail = () => toast.error("Login Failed!");
 const navigate = useNavigate();
   const location = useLocation();
-  console.log( location)
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -26,8 +26,18 @@ const navigate = useNavigate();
       const user = result.user;
       loginSuccess();
 
-      // navigate after log in
-      navigate( location?.state ? location?.state : '/' )
+      const logInUser = {email};
+      console.log(logInUser, 'log in user variable')
+
+      // token genarate 
+      axios.post('http://localhost:5000/jwt', logInUser, {withCredentials:true})
+      .then(res => {
+        console.log(res.data)
+        // navigate after log in
+        if(res.data.success){
+          navigate( location?.state ? location?.state : '/' )
+        }
+      })
 
     })
     .catch((error) => {
